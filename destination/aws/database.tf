@@ -5,6 +5,7 @@ resource "aws_db_instance" "irida_db" {
   allocated_storage     = 20
   max_allocated_storage = 100
   storage_type          = "gp2"
+  storage_encrypted = true
   engine                = "MariaDB" # https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html
   engine_version       = "10.5"
   instance_class = "db.t3.micro" # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html

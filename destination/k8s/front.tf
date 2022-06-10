@@ -147,7 +147,6 @@ resource "kubernetes_service" "irida" {
   metadata {
     name      = local.app_name
     namespace = local.namespace.metadata.0.name
-    annotations = var.lb_annotations
   }
   spec {
     selector = {
@@ -165,7 +164,16 @@ resource "kubernetes_service" "irida" {
       port        = 443
       target_port = 8080
     }
+    type = "ClusterIP" # https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer
 
-    type = "LoadBalancer" # https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer
   }
+}
+
+resource "kubernetes_ingress" "irida" {
+  metadata {
+    name      = local.app_name
+    namespace = local.namespace.metadata.0.name
+    annotations = var.lb_annotations
+  }
+  spec {}
 }

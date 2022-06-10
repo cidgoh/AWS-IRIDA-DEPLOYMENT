@@ -39,6 +39,7 @@ resource "kubernetes_namespace" "instance" {
 
 module "galaxy-storage" {
   source = "github.com/brinkmanlab/galaxy-container.git//destinations/aws/storage"
+
   instance = var.instance
   user_data_volume_name = "user-data-${var.instance}"
   vpc = module.cloud.vpc
@@ -114,4 +115,36 @@ module "irida" {
   debug = var.debug
   #plugins = []
   #additional_repos = []
+#  lb_annotations = {
+#    "service.beta.kubernetes.io/aws-load-balancer-backend-protocol" : "http"
+#    "service.beta.kubernetes.io/aws-load-balancer-ssl-cert" : aws_acm_certificate.irida_aws.arn
+#    "service.beta.kubernetes.io/aws-load-balancer-ssl-ports" : "https"
+#    "service.beta.kubernetes.io/aws-load-balancer-type" : "alb"
+#    "service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout" : 120
+#  }
 }
+
+#resource "aws_acm_certificate" "irida_aws" {
+#  domain_name       = ""
+#  validation_method = "DNS"
+#
+#  tags = {
+#    Environment = local.instance
+#  }
+#
+#  lifecycle {
+#    create_before_destroy = true
+#  }
+#}
+#
+#resource "aws_acm_certificate_validation" "irida_aws" {
+#  certificate_arn         = aws_acm_certificate.irida_aws.arn
+#  validation_record_fqdns = [for record in cloudflare_record.irida_aws_cert : record.hostname]
+#}
+#
+#data "null_data_source" "validation_wait" {
+#  depends_on = [aws_acm_certificate_validation.irida_aws]
+#  inputs = {
+#    endpoint = module.irida.endpoint
+#  }
+#}
