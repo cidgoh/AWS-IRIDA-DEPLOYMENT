@@ -174,8 +174,8 @@ resource "kubernetes_ingress" "irida" {
   metadata {
     name      = local.app_name
     namespace = local.namespace.metadata.0.name
-    annotations = merge(var.lb_annotations, {"service.beta.kubernetes.io/aws-load-balancer-type" : "alb"
-})
+    annotations = merge(var.lb_annotations, {"kubernetes.io/ingress.class": "alb",
+    "alb.ingress.kubernetes.io/scheme": "internet-facing"})
   }
   spec {
     backend {
