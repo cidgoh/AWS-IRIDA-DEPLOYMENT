@@ -20,6 +20,7 @@ module "cloud" {
 data "aws_eks_cluster" "cluster" {
   name = module.cloud.eks.cluster_id
 }
+data "aws_region" "current" {}
 
 data "aws_eks_cluster_auth" "cluster" {
   name = module.cloud.eks.cluster_id
@@ -148,3 +149,14 @@ module "irida" {
 #    endpoint = module.irida.endpoint
 #  }
 #}
+
+module "alb_ingress_controller" {
+  source  = "iplabs/alb-ingress-controller/kubernetes"
+  version = "3.4.0"
+
+  k8s_cluster_type = "eks"
+  k8s_namespace    = "kube-system"
+
+  aws_region_name  = data.aws_region.current.name
+  k8s_cluster_name = data.aws_eks_cluster.cluster.name
+}
