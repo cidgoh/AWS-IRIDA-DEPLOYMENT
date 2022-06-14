@@ -177,7 +177,7 @@ resource "kubernetes_ingress" "irida" {
   }
   spec {
     backend {
-      service_name = local.app_name
+      service_name = kubernetes_service.irida.metadata.0.name
       service_port = 80
     }
   }
