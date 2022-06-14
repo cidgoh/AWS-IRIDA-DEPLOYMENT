@@ -46,7 +46,7 @@ module "k8s" {
 }
 
 resource "aws_wafv2_web_acl" "waf" {
-  name  = "web-acl-association-example"
+  name  = "web-acl-irida"
   scope = "REGIONAL"
 
   default_action {
@@ -57,8 +57,8 @@ resource "aws_wafv2_web_acl" "waf" {
     priority = 0
     statement {
       managed_rule_group_statement {
-        name        = "AWS"
-        vendor_name = "AWSManagedRulesCommonRuleSet"
+        vendor_name        = "AWS"
+        name = "AWSManagedRulesCommonRuleSet"
       }
     }
     override_action {
@@ -70,96 +70,96 @@ resource "aws_wafv2_web_acl" "waf" {
       sampled_requests_enabled   = true
     }
   }
-#  rule {
-#    name     = "AWSManagedRulesLinuxRuleSet"
-#    priority = 1
-#    statement {
-#      managed_rule_group_statement {
-#        name        = "AWS"
-#        vendor_name = "AWSManagedRulesLinuxRuleSet"
-#      }
-#    }
-#    override_action {
-#      none {}
-#    }
-#    visibility_config {
-#      cloudwatch_metrics_enabled = true
-#      metric_name                = "AWSManagedRulesLinuxRuleSet"
-#      sampled_requests_enabled   = true
-#    }
-#  }
-#  rule {
-#    name     = "AWSManagedRulesKnownBadInputsRuleSet"
-#    priority = 2
-#    statement {
-#      managed_rule_group_statement {
-#        name        = "AWS"
-#        vendor_name = "AWSManagedRulesKnownBadInputsRuleSet"
-#      }
-#    }
-#    override_action {
-#      none {}
-#    }
-#    visibility_config {
-#      cloudwatch_metrics_enabled = true
-#      metric_name                = "AWSManagedRulesKnownBadInputsRuleSet"
-#      sampled_requests_enabled   = true
-#    }
-#  }
-#  rule {
-#    name     = "AWSManagedRulesSQLiRuleSet"
-#    priority = 3
-#    statement {
-#      managed_rule_group_statement {
-#        name        = "AWS"
-#        vendor_name = "AWSManagedRulesSQLiRuleSet"
-#      }
-#    }
-#    override_action {
-#      none {}
-#    }
-#    visibility_config {
-#      cloudwatch_metrics_enabled = true
-#      metric_name                = "AWSManagedRulesSQLiRuleSet"
-#      sampled_requests_enabled   = true
-#    }
-#  }
-#  rule {
-#    name     = "AWSManagedRulesAdminProtectionRuleSet"
-#    priority = 4
-#    statement {
-#      managed_rule_group_statement {
-#        name        = "AWS"
-#        vendor_name = "AWSManagedRulesAdminProtectionRuleSet"
-#      }
-#    }
-#    override_action {
-#      none {}
-#    }
-#    visibility_config {
-#      cloudwatch_metrics_enabled = true
-#      metric_name                = "AWSManagedRulesAdminProtectionRuleSet"
-#      sampled_requests_enabled   = true
-#    }
-#  }
-#  rule {
-#    name     = "AWSManagedRulesAnonymousIpList"
-#    priority = 4
-#    statement {
-#      managed_rule_group_statement {
-#        name        = "AWS"
-#        vendor_name = "AWSManagedRulesAnonymousIpList"
-#      }
-#    }
-#    override_action {
-#      none {}
-#    }
-#    visibility_config {
-#      cloudwatch_metrics_enabled = true
-#      metric_name                = "AWSManagedRulesAnonymousIpList"
-#      sampled_requests_enabled   = true
-#    }
-#  }
+  rule {
+    name     = "AWSManagedRulesLinuxRuleSet"
+    priority = 1
+    statement {
+      managed_rule_group_statement {
+        vendor_name        = "AWS"
+        name = "AWSManagedRulesLinuxRuleSet"
+      }
+    }
+    override_action {
+      none {}
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWSManagedRulesLinuxRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+  rule {
+    name     = "AWSManagedRulesKnownBadInputsRuleSet"
+    priority = 2
+    statement {
+      managed_rule_group_statement {
+        vendor_name        = "AWS"
+        name = "AWSManagedRulesKnownBadInputsRuleSet"
+      }
+    }
+    override_action {
+      none {}
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWSManagedRulesKnownBadInputsRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+  rule {
+    name     = "AWSManagedRulesSQLiRuleSet"
+    priority = 3
+    statement {
+      managed_rule_group_statement {
+        vendor_name        = "AWS"
+        name = "AWSManagedRulesSQLiRuleSet"
+      }
+    }
+    override_action {
+      none {}
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWSManagedRulesSQLiRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+  rule {
+    name     = "AWSManagedRulesAdminProtectionRuleSet"
+    priority = 4
+    statement {
+      managed_rule_group_statement {
+        vendor_name        = "AWS"
+        name = "AWSManagedRulesAdminProtectionRuleSet"
+      }
+    }
+    override_action {
+      none {}
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWSManagedRulesAdminProtectionRuleSet"
+      sampled_requests_enabled   = true
+    }
+  }
+  rule {
+    name     = "AWSManagedRulesAnonymousIpList"
+    priority = 4
+    statement {
+      managed_rule_group_statement {
+        vendor_name        = "AWS"
+        name = "AWSManagedRulesAnonymousIpList"
+      }
+    }
+    override_action {
+      none {}
+    }
+    visibility_config {
+      cloudwatch_metrics_enabled = true
+      metric_name                = "AWSManagedRulesAnonymousIpList"
+      sampled_requests_enabled   = true
+    }
+  }
 
   visibility_config {
     cloudwatch_metrics_enabled = true
