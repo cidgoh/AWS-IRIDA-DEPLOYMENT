@@ -3,7 +3,6 @@ locals {
   galaxy_repositories = module.k8s.galaxy_repositories
   waf_lb_anotations = var.enable_waf? {
    "alb.ingress.kubernetes.io/wafv2-acl-arn": aws_wafv2_web_acl.waf.arn
-    "service.beta.kubernetes.io/aws-load-balancer-type" : "alb"
   }: {}
 }
 
