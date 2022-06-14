@@ -170,7 +170,6 @@ resource "kubernetes_service" "irida" {
 }
 
 resource "kubernetes_ingress" "irida" {
-  wait_for_load_balancer = true
   metadata {
     name      = local.app_name
     namespace = local.namespace.metadata.0.name
