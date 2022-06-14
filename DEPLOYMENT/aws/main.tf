@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 module "cloud" {
-  source             = "github.com/brinkmanlab/cloud_recipes.git//aws" #?ref=v0.1.2"
+  source             = "github.com/brinkmanlab/cloud_recipes.git//aws?ref=alb"
   cluster_name       = var.instance
   autoscaler_version = "1.20.0"
   #docker_registry_proxies = {
@@ -149,14 +149,3 @@ module "irida" {
 #    endpoint = module.irida.endpoint
 #  }
 #}
-
-module "alb_ingress_controller" {
-  source  = "iplabs/alb-ingress-controller/kubernetes"
-  version = "3.4.0"
-
-  k8s_cluster_type = "eks"
-  k8s_namespace    = "kube-system"
-
-  aws_region_name  = data.aws_region.current.name
-  k8s_cluster_name = data.aws_eks_cluster.cluster.name
-}
