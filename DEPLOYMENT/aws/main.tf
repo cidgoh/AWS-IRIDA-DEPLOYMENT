@@ -20,8 +20,6 @@ module "cloud" {
 data "aws_eks_cluster" "cluster" {
   name = module.cloud.eks.cluster_id
 }
-data "aws_region" "current" {}
-
 data "aws_eks_cluster_auth" "cluster" {
   name = module.cloud.eks.cluster_id
 }
