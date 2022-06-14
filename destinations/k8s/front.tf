@@ -178,6 +178,11 @@ resource "kubernetes_ingress" "irida" {
   spec {
     backend {
       service_name = local.app_name
+      service_port = 80
+    }
+    backend {
+      service_name = local.app_name
+      service_port = 443
     }
   }
 }
