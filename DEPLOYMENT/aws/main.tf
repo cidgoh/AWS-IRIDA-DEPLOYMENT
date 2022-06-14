@@ -149,3 +149,16 @@ module "irida" {
 #    endpoint = module.irida.endpoint
 #  }
 #}
+
+module "eks-lb-controller" {
+  source  = "DNXLabs/eks-lb-controller/aws"
+  version = "0.6.0"
+  # insert the 4 required variables here
+  enabled = true
+  create_namespace = false
+  cluster_identity_oidc_issuer     = module.cloud.eks.cluster_oidc_issuer_url
+  cluster_identity_oidc_issuer_arn = module.cloud.eks.oidc_provider_arn
+  cluster_name                     = module.cloud.eks.cluster_id
+
+  depends_on = [module.cloud.eks]
+}
