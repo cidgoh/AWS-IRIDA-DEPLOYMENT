@@ -180,9 +180,5 @@ resource "kubernetes_ingress" "irida" {
       service_name = local.app_name
       service_port = 80
     }
-    backend {
-      service_name = local.app_name
-      service_port = 443
-    }
   }
 }
