@@ -18,12 +18,6 @@ variable "region" {
   type = string
   description = "AWS region to deploy into"
 }
-variable "aws_access_id" {
-  type= string
-}
-variable "aws_secret" {
-  type= string
-}
 
 variable "base_url" {
   type        = string
