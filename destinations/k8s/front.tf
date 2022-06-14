@@ -175,5 +175,9 @@ resource "kubernetes_ingress" "irida" {
     namespace = local.namespace.metadata.0.name
     annotations = var.lb_annotations
   }
-  spec {}
+  spec {
+    backend {
+      service_name = local.app_name
+    }
+  }
 }
