@@ -144,7 +144,7 @@ resource "aws_wafv2_web_acl" "waf" {
   }
   rule {
     name     = "AWSManagedRulesAnonymousIpList"
-    priority = 4
+    priority = 5
     statement {
       managed_rule_group_statement {
         vendor_name        = "AWS"
