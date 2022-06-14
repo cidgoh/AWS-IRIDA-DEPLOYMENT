@@ -53,7 +53,7 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     allow {}
   }
   rule {
-    name     = "AWS-AWSManagedRulesCommonRuleSet"
+    name     = "AWSManagedRulesCommonRuleSet"
     priority = 0
     statement {
       managed_rule_group_statement {
@@ -66,12 +66,12 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     }
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "AWS-AWSManagedRulesCommonRuleSet"
+      metric_name                = "AWSManagedRulesCommonRuleSet"
       sampled_requests_enabled   = true
     }
   }
   rule {
-    name     = "AWS-AWSManagedRulesLinuxRuleSet"
+    name     = "AWSManagedRulesLinuxRuleSet"
     priority = 1
     statement {
       managed_rule_group_statement {
@@ -84,12 +84,12 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     }
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "AWS-AWSManagedRulesLinuxRuleSet"
+      metric_name                = "AWSManagedRulesLinuxRuleSet"
       sampled_requests_enabled   = true
     }
   }
   rule {
-    name     = "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+    name     = "AWSManagedRulesKnownBadInputsRuleSet"
     priority = 2
     statement {
       managed_rule_group_statement {
@@ -102,12 +102,12 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     }
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "AWS-AWSManagedRulesKnownBadInputsRuleSet"
+      metric_name                = "AWSManagedRulesKnownBadInputsRuleSet"
       sampled_requests_enabled   = true
     }
   }
   rule {
-    name     = "AWS-AWSManagedRulesSQLiRuleSet"
+    name     = "AWSManagedRulesSQLiRuleSet"
     priority = 3
     statement {
       managed_rule_group_statement {
@@ -120,12 +120,12 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     }
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "AWS-AWSManagedRulesSQLiRuleSet"
+      metric_name                = "AWSManagedRulesSQLiRuleSet"
       sampled_requests_enabled   = true
     }
   }
   rule {
-    name     = "AWS-AWSManagedRulesAdminProtectionRuleSet"
+    name     = "AWSManagedRulesAdminProtectionRuleSet"
     priority = 4
     statement {
       managed_rule_group_statement {
@@ -138,12 +138,12 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     }
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "AWS-AWSManagedRulesAdminProtectionRuleSet"
+      metric_name                = "AWSManagedRulesAdminProtectionRuleSet"
       sampled_requests_enabled   = true
     }
   }
   rule {
-    name     = "AWS-AWSManagedRulesAnonymousIpList"
+    name     = "AWSManagedRulesAnonymousIpList"
     priority = 4
     statement {
       managed_rule_group_statement {
@@ -156,7 +156,7 @@ resource "aws_wafv2_web_acl" "irida-waf" {
     }
     visibility_config {
       cloudwatch_metrics_enabled = true
-      metric_name                = "AWS-AWSManagedRulesAnonymousIpList"
+      metric_name                = "AWSManagedRulesAnonymousIpList"
       sampled_requests_enabled   = true
     }
   }
