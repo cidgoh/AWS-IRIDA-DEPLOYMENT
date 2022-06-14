@@ -48,7 +48,6 @@ module "k8s" {
 resource "aws_wafv2_web_acl" "irida-waf" {
   name  = "web-acl-association-example"
   scope = "REGIONAL"
-  region = "ca-central-1"
 
   default_action {
     allow {}
