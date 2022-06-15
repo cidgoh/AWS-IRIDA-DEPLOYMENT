@@ -112,6 +112,7 @@ module "irida" {
   #ncbi_user = ""
   #ncbi_password = ""
   debug = var.debug
+  enable_waf = true
   #plugins = []
   #additional_repos = []
 #  lb_annotations = {
