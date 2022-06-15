@@ -182,9 +182,6 @@ resource "kubernetes_ingress" "irida" {
       service_name = kubernetes_service.irida.metadata.0.name
       service_port = 80
     }
-    tls {
-      secret_name = "irida-tls-secret"
-    }
   }
 
 }
