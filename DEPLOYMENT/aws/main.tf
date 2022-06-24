@@ -65,7 +65,7 @@ module "galaxy" {
     allow_user_creation = false
     email_from = var.email
   }
-  image_tag   = "latest"
+  image_tag   = "v21.05.1"
   admin_users = [var.email]
   email       = var.email
   debug       = var.debug
