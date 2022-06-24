@@ -76,6 +76,7 @@ module "galaxy" {
   extra_mounts = module.irida-storage.extra_mounts
   tool_mappings = yamldecode(file("../../tool_mapping.yml"))
   tool_containers = {"foo": ""}
+  worker_max_replicas = 1
 }
 module "admin_user" {
   source         = "github.com/brinkmanlab/galaxy-container.git//modules/bootstrap_admin"
