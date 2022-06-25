@@ -75,7 +75,7 @@ module "galaxy" {
   extra_job_mounts = module.irida-storage.extra_job_mounts
   extra_mounts = module.irida-storage.extra_mounts
   tool_mappings = yamldecode(file("../../tool_mapping.yml"))
-  tool_containers = {"foo": ""}
+  tool_containers = {shovill: 'quay.io/biocontainers/shovill:1.1.0--hdfd78af_1'}
   worker_max_replicas = 1
 }
 module "admin_user" {
