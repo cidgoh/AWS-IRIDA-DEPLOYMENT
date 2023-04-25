@@ -1,5 +1,14 @@
 # IRIDA Container and deployment
 
+
+
+
+
+![IaC IRIDA AWS](https://user-images.githubusercontent.com/59749174/234351504-2a2fa948-f261-449e-8c11-82e1bcade2bd.png)
+
+
+
+
 The repository contains everything needed to build a container for IRIDA and deploy to a cloud resource.
 Example deployments are provided in the `./deployment` folder for various destinations. For production use, it is
 recommended to create your own deployment recipe using the terraform modules provided in `./desinations`. Terraform
